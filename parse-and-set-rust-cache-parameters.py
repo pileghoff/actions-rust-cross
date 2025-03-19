@@ -36,7 +36,7 @@ def main():
     with open(file, "w") as f:
         print(f"Setting cache keys:")
         for key, value in parameters.items():
-            if isinstance(value, bool):
+            if str(value) in ["True", "False"]:
                 value = str(value).lower()
 
             f.write(f"{key}={value}\n")
