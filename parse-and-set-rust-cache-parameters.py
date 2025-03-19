@@ -34,7 +34,11 @@ def main():
 
     file = os.environ["GITHUB_OUTPUT"]
     with open(file, "w") as f:
+        print(f"Setting cache keys:")
         for key, value in parameters.items():
+            if isinstance(value, bool):
+                value = str(value).lower()
+
             f.write(f"{key}={value}\n")
 
 
